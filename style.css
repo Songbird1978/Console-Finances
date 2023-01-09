@@ -1,0 +1,37 @@
+.grid-container {
+    display: grid;
+    max-width: 600px;
+    max-height: 300px;
+    gap: 1px;
+    border-style: double;
+    background-color:aliceblue;
+    font-family:sans-serif ;
+    color:darkmagenta;
+    text-shadow:10px;
+    border-color:rgb(216, 108, 144);
+    resize: horizontal;
+    overflow:scroll;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    "one two"
+    "three four"
+    "five six"
+    "seven eight"
+    "nine ten"
+    "eleven twelve"
+    "thirteen fourteen";
+    
+}
+
+
+.grid-container {
+    grid-area:all;
+    padding: 20px;
+}
+
+.body {
+    font-family:sans-serif ;
+    padding: 10px;
+    margin: 10px;
+}
