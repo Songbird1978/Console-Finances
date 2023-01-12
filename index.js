@@ -1,5 +1,5 @@
 let finances = [
-['Jan-2010', 867884],
+['Jan-2010', 867884], 
 ['Feb-2010', 984655],
 ['Mar-2010', 322013],
 ['Apr-2010', -69417],
@@ -87,16 +87,76 @@ let finances = [
 ['Feb-2017', 671099]
 ];
 
-console.table(finances);
 
-console.log ("Total months : ", finances.length );
+let sum = 0; //total sum of profit/loss
+let profit = 0; //actual amount of profit or loss per month
+let difference = 0; //individual differences between entries
+let totalDiff = 0; //sum of all changes (differences)
+let average = 0; //sum of difference divided by length of entries
+let maxIncrease = 0;
+let minIncrease = 0;
 
-let sum = 0;
-for (let i = 0; i < finances.length; i++) {
-  sum += finances[i][1]
-}
-console.log("Total Profit / Loss: $" + sum);
+console.log ("Financial Analysis");
 
+console.log ("--------------------");
+
+console.log ("Total Months : ", finances.length); // logs the total amount of months 
+
+for (let i = 0; i < finances.length; i++) { //loop through the entries
+  
+    sum += finances[i][1] //total sum of profit/loss (finances.length)
+
+}    
+
+console.log ("Total Profit / Loss: $" + sum); //logs the total profit / loss
+
+
+
+for (let i = 1; i < finances.length; i++) { //loop through the entries
+  
+    
+    let profit = finances[i][1];
+
+    let difference = profit - finances[i - 1][1]; //tracks the changes between entries 
+
+    console.log ("Difference: $", difference + " " + finances[i][0]);  //logs the changes in value per element through the length
+    
+    totalDiff += difference; //calculates the total differences
+
+    
+
+    
+   
+
+
+       
+    
+}    
+
+
+
+console.log ("Total Difference: $", totalDiff); 
+
+average = Math.round(totalDiff / finances.length);
+
+console.log ("Average Change: $", average); //logs the average of difference (changes)
+
+
+console.log ("Greatest Increase in Profits: $" + Math.max(difference) ); //logs the greatest increase in profits (changes)
+
+console.log ("Greatest Decrease in Profits: $" + Math.min(difference) ); //logs the greatest decrease in profits (changes)
+
+
+
+
+
+
+
+
+
+
+
+   
 
 
 
