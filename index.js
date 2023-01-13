@@ -89,63 +89,59 @@ let finances = [
 
 
 let sum = 0; //total sum of profit/loss
-let profit = 0; //actual amount of profit or loss per month
-let difference = 0; //individual differences between entries
 let totalDiff = 0; //sum of all changes (differences)
 let average = 0; //sum of difference divided by length of entries
-let maxIncrease = 0;
-let minIncrease = 0;
+var largestIncrease = 0; //largest increase in profits (differences / changes)
+var largestDecrease = 0; //largest decrease in profits (differences / changes)
+var largestIncreaseDate; //the date of the largest increase
+var largestDecreaseDate;//the date of te largest decrease 
 
-console.log ("Financial Analysis");
+console.log ("Financial Analysis"); //logs the tabe title 
 
-console.log ("--------------------");
+console.log ("--------------------"); //logs a dividing line 
 
-console.log ("Total Months : ", finances.length); // logs the total amount of months 
+console.log ("Total Months : ", finances.length); // logs the total amount of months or entries in the 2D array
 
-for (let i = 0; i < finances.length; i++) { //loop through the entries
+
+for (let i = 0; i < finances.length; i++) { // loops through the entries of the 2D array
   
-    sum += finances[i][1] //total sum of profit/loss (finances.length)
+    sum += finances[i][1] //total sum of profit/loss (finances.length) through the 2D array 
 
 }    
 
-console.log ("Total Profit / Loss: $" + sum); //logs the total profit / loss
+console.log ("Total Profit / Loss: $ " + sum); //logs the total profit / loss - each instance of the amount in each array
 
 
 
-for (let i = 1; i < finances.length; i++) { //loop through the entries
+for (let i = 1; i < finances.length; i++) { //loop through the entries of the 2D array
   
     
-    let profit = finances[i][1];
+    let profit = finances[i][1]; // establishes that the profit IS each instance of the amount in each array
 
     let difference = profit - finances[i - 1][1]; //tracks the changes between entries 
-
-    console.log ("Difference: $", difference + " " + finances[i][0]);  //logs the changes in value per element through the length
     
     totalDiff += difference; //calculates the total differences
 
+    if (largestIncrease < difference) { //if the largest increase is less than the difference 
+        largestIncrease = difference; //the largest increase IS the difference
+        largestIncreaseDate = finances[i][0]; //stores the date of the largest increase
+    }
+
+    if (largestDecrease > difference) { //if the largest decrease is greater than the difference 
+        largestDecrease = difference; //the largest decrease IS the difference
+        largestDecreaseDate = finances[i][0]; //stores the date of the largest decrease
+    }
     
-
-    
-   
-
-
        
-    
 }    
 
+average = Math.round(totalDiff / (finances.length - 1)); //states that the average IS the total difference divided by the length of finances -1
 
+console.log ("Average Change: $", average); //logs the average of difference (changes) in the console
 
-console.log ("Total Difference: $", totalDiff); 
+console.log ("Greatest Increase: $ ", largestIncrease, largestIncreaseDate); //logs the Greatest Increase AND the date
 
-average = Math.round(totalDiff / finances.length);
-
-console.log ("Average Change: $", average); //logs the average of difference (changes)
-
-
-console.log ("Greatest Increase in Profits: $" + Math.max(difference) ); //logs the greatest increase in profits (changes)
-
-console.log ("Greatest Decrease in Profits: $" + Math.min(difference) ); //logs the greatest decrease in profits (changes)
-
+console.log ("Greatest Decrease: $ ", largestDecrease, largestDecreaseDate); // logs the Greatest Decrease AND the date
 
 
 
