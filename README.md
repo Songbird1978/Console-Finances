@@ -18,7 +18,7 @@ It generates :
 
     *The greatest decrease in profits (date and amount) over the entire period
 
-When you open the console, the analysis is laid out in this order in the form a list.
+When you open the console, the analysis is laid out in this order in the form of a list.
 
 The app uses Javascript to analyse the data using 'for' loops and 'if' statements. 
 
