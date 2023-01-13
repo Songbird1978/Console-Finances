@@ -26,7 +26,7 @@ It also uses the function math.floor to round to the nearest 100th.
 
 ### Executing program
 
-Run the program using the deployed site 
+Run the program using the deployed site at https://songbird1978.github.io/Console-Finances/
 Inside the browser window,  OPEN CONSOLE to see results.
 
 
